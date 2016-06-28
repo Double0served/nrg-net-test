@@ -3,6 +3,8 @@
 # nrg-automated-net-test.sh
 # Created by Joey Cherry for Western NRG
 
+# Required (non standard) programs: Mtr, ifconfig, speedtest-cli, ssh/scp.
+
 DATE=`date +"%H:%M:%S_%d-%m-%Y"`
 TIME=`date +"%H:%M:%S"`
 TITLE="nrg-automated-net-test-$DATE.txt"
