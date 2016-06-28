@@ -31,6 +31,9 @@ ArchPi:
     yaourt
     package-query
 
+  Packages worth installing:
+    cron
+
   Noteworthy items:
     Using nrg-net-test to measure the quality of your network may result in decreased network performace, due to the significant amount of network traffic created. Furthermore, running this test on wifi will make this information worthless. Press enter to continue:"
 
