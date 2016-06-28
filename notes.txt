@@ -27,5 +27,5 @@ ArchPi:
 
   Noteworthy items:
     rpi (all models) only have 10/100 nic -- Recommend buying usb nic 10/100/1000 for anything faster than 100mbps down/up  ~= $13
-    32 gb samsung sd clas 10 ~= $12
+    32 gb samsung sd class 10 ~= $12
     dhcp is enabled for eth0
