@@ -1,5 +1,9 @@
 ArchPi:
 
+  OS:
+    Arch linux for arm7 -- rolling release
+      4.4.14-1-ARCH
+
   Users:
     alarm / NRG #has root power with sudo -- rename this (usermod --move-home --login <new-login-name> --home <new-home-dir> <old-login-name>)
     root / WesternNRG
@@ -32,7 +36,7 @@ ArchPi:
     package-query
 
   Packages worth installing:
-    cron
+    cron #for automating tasks
 
   Noteworthy items:
     Using nrg-net-test to measure the quality of your network may result in decreased network performace, due to the significant amount of network traffic created. Furthermore, running this test on wifi will make this information worthless. Press enter to continue:"
@@ -46,4 +50,4 @@ ArchPi:
       (https://www.amazon.com/Travel-Charger-Adapter-activated-Samsung/dp/B00INC7ZAK/ref=sr_1_5?s=wireless&ie=UTF8&qid=1467085954&sr=1-5&keywords=phone+charger)
     Raspberry pi 3 (NOTE: prototype built with rpi 2b, this can be changed, however the os (arch) will need to be reinstalled with a corresponding version) ~= $35
       (https://www.amazon.com/Raspberry-Pi-RASP-PI-3-Model-Motherboard/dp/B01CD5VC92/ref=sr_1_6?s=pc&ie=UTF8&qid=1467086303&sr=1-6&keywords=raspberry+pi+2)
-  Total: ~$70
+  Total: ~$70 from amazon

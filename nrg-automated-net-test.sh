@@ -21,7 +21,7 @@ NOTE="Note: Using nrg-net-test to measure the quality of your network may result
 cd /tmp
 touch $TITLE
 
-echo $BAR >> $TITLE
+echo "========================="$TIME"=========================" >> $TITLE
 echo $NOTE >> $TITLE
 echo $BAR >> $TITLE
 echo `ifconfig` >> $TITLE

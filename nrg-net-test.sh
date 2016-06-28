@@ -9,10 +9,10 @@ DATE=`date +"%H:%M:%S_%d-%m-%Y"`
 TIME=`date +"%H:%M:%S"`
 TITLE="nrg-net-test-$DATE.txt"
 
-NOTE="Note: Using nrg-net-test to measure the quality of your network may result in decreased network performace, due to the significant amount of network traffic created. Furthermore, running this test on wifi will make this information worthless. Press enter to continue:"
+NOTE="Note: Using nrg-net-test to measure the quality of your network may result in decreased network performace, due to the significant amount of network traffic created. Furthermore, running this test on wifi (or with the built in raspberrypi NIC with connections faster than 100mbps up/down) will make this information worthless. Press enter to continue:"
 
 echo `clear`
-echo $TIME
+echo "NRG-NET-TEST started at: $TIME"
 
 read -p "Where would you like to save the output of this file? Please use full path to location or this will not work. (Recommended is /tmp): " LOCATION
 cd $LOCATION
