@@ -6,7 +6,7 @@ ArchPi:
 
   Users:
     alarm / NRG #has root power with sudo -- rename this (usermod --move-home --login <new-login-name> --home <new-home-dir> <old-login-name>)
-    root / WesternNRG
+    root / WesternNRG:1941
 
   SSH / scp
     deamon enabled on port 22 #change me!
