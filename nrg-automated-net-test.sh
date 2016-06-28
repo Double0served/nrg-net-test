@@ -15,7 +15,7 @@ DEFAULT_ADDR="8.8.8.8"
 DEFAULT_COUNT="1" #Testing
 
 
-NOTE="Note: Using nrg-net-test to measure the quality of your network may result in decreased network performace, due to the significant amount of network traffic created. Furthermore, running this test on wifi will make this information meaningless. Press enter to continue:"
+NOTE="Note: Using nrg-net-test to measure the quality of your network may result in decreased network performace, due to the significant amount of network traffic created. Furthermore, running this test on wifi will make this information worthless. Press enter to continue:"
 
 
 cd /tmp
