@@ -55,8 +55,8 @@ read ANSWER2
 if [ $ANSWER2 == "y" ]; then
 	echo `scp -P 22 ./$TITLE pi@192.168.0.5:/tmp` #Change my values! http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/ Note: do not put passphrase on ALSO chmod 0644 is too weak, try 400 AND make it immutable
 	echo "File saved on WesternNRG's servers and saved localy to $LOCATION"
-else
-	echo "File saved localy to $LOCATION"
 fi
 
-echo "==================================================" >> $TITLE
+if [ $ANSWER2 != "y"]; then
+	echo "File saved localy to $LOCATION"
+fi

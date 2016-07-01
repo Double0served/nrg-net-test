@@ -31,4 +31,3 @@ echo $BAR >> $TITLE
 echo "`mtr --report --report-cycle $DEFAULT_COUNT $DEFAULT_ADDR >> $TITLE`"
 echo $BAR >> $TITLE
 echo `scp -P 22 ./$TITLE pi@192.168.0.5:/tmp` #Change my values! http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/ Note: do not put passphrase on ALSO chmod 0644 is too weak, try 400 AND make it immutable
-echo $BAR >> $TITLE

@@ -1,46 +1,129 @@
+====================================================================================================
 ArchPi:
+====================================================================================================
+
+  Overview:
+	OS
+	Users
+	SSH / SCP
+	Networking
+	Required installed packages
+	Extra installed packages
+	Packages worth installing
+	Installation + Cron
+	Use
+	Noteworthy items
+	Cost
+
+====================================================================================================
 
   OS:
     Arch linux for arm7 -- rolling release
-      4.4.14-1-ARCH
+      Linux alarmpi 4.4.14-1-ARCH #1 SMP Sun Jun 26 12:17:30 MDT 2016 armv71 GNU/Linux
+	  
 
+====================================================================================================
+	  
   Users:
-    alarm / NRG #has root power with sudo -- rename this (usermod --move-home --login <new-login-name> --home <new-home-dir> <old-login-name>)
+    nrg / NRG #has root power with sudo
     root / WesternNRG:1941
 
+====================================================================================================
+	
   SSH / scp
     deamon enabled on port 22 #change me!
     no new keys have been made
     root disabled
+	
+	IMPORTANT: The SCP function in the script is hard coded. This needs to be changed once we have a sutable place for the output data to store to.
+				Also, SCP  can be changed to ftp, or sftp if needed.
 
     http://www.howtogeek.com/66776/how-to-remotely-copy-files-over-ssh-without-entering-your-password/ Note: do not put passphrase on ALSO chmod 0644 is too weak, try 400 AND make it immutable
 
+====================================================================================================
+	
   Networking:
     rpi (all models) only have 10/100 nic -- Recommend buying usb nic 10/100/1000 for anything faster than 100mbps down/up  ~= $13
     dhcp is enabled for eth0
 
+====================================================================================================
+	
   Required installed packages:
     MTR
     ifconfig
     speedtest-cli #https://www.howtoforge.com/tutorial/check-internet-speed-with-speedtest-cli-on-ubuntu/ or use yaourt
 
-  Extra installed packages:
+====================================================================================================
+	
+  Extra installed packages: (recomended)
     base-devel + dependencies #required for package building
     ntp
-    urxvt + dependencies
+    urxvt + dependencies #not needed, but will work well with ssh
     sudo
-    wget
+    wget #not needed, but nice to have
     git #to download repo
-    binutils
-    yaourt
+    binutils #for package building
+    yaourt #not required, but makes installing from source much easier (NOTE: THIS IS AN ARCH LINUX THING ONLY) http://www.techrapid.co.uk/linux/arch-linux/install-aur-package-with-yaourt-on-arch-linux/
     package-query
+	
+====================================================================================================
 
   Packages worth installing:
     cron #for automating tasks
+	smtp-server #send job output via email
 
+====================================================================================================
+
+  Installation:
+	This program is linux only. We will be installling it on a raspberry pi, with any distro of your choice. Here we will be using demonstrating debian, as it is a standard install, and is easy. For a more lightweight distro, use Arch.
+	1. Install distro of choice
+	2. Have an account with root privlages
+	3. update and upgrade system #apt update && apt upgrade
+	4. download git #apt install git
+	5. navigate to the folder you want to save nrg-net-test to.
+	6. git clone https://github.com/jaytcollier/nrg-net-test
+		6.a. jaytcollier is the owner of this repo
+	7. enter the file cd ./nrg-net-test
+	8. change the two .sh files to be executable #chmod +x nrg-net-test.sh && chmod +x nrg-automated-net-test
+	9. run the scrip $bash ./nrg-net-test.sh
+	
+  Cron / fcron / cronie: #note these are interchangeable, but they should be called by their respective names based on what you download. #More information at https://wiki.archlinux.org/index.php/cron
+	Now that the github project is installed, the test can be automated
+	1. enable your cron alt with systemctl
+		1.a. Check if cron is running. $systemctl status cron
+		1.b. enable cron if it is not already #systemctl enable cron
+		1.c. start cron if it is not already #systemctl start cron
+	2.Add a new cronjob to cron $cron -e
+		2.a. Format:
+			# mm  hh  DD  MM  W /path/progam [--option]...  ( W = weekday: 0-6 [Sun=0] )
+		2.b. Example:
+			  21  01  *   *   * ~/nrg-net-test/nrg-net-test.sh
+			  @weekly           ~/nrg-net-test/nrg-automated-net-test.sh
+		2.c. Cron uses vi as default editor. To enter insert mode press i. To exit insert mode ctrl+c. To save file ":wq" (no quotes)
+	
+====================================================================================================
+
+  Usage: To run a bash script, enter the folder holding the file. (Make sure you have suffiecnt permissions $ls -al) sh ./SCRIPT_GOES_HERE.sh or bash ./SCRIPT_GOES_HERE.sh
+	nrg-net-test.sh:
+		sh ./nrg-net-test
+			Follow on screen prompts. Make sure to put in fully qualified names as without them, the program will not work.
+			The recommended output folder is /tmp, because at resart the information is deleted.
+			
+		
+	nrg-automated-net-test.sh: #great with cron!
+		sh ./nrg-automated-net-test
+			There are no on screen commands. The output will be in the /tmp folder and sent to WesternNRG's servers.
+			NOTE: This is very hard coded, but easy to change if needed.
+
+====================================================================================================
+	
   Noteworthy items:
-    Using nrg-net-test to measure the quality of your network may result in decreased network performace, due to the significant amount of network traffic created. Furthermore, running this test on wifi will make this information worthless. Press enter to continue:"
+    Using nrg-net-test to measure the quality of your network may result in decreased network performace, due to the significant amount of network traffic created. Furthermore, running this test on wifi will make this information worthless. Press enter to continue:
+	
+	IMPORTANT: The SCP function in the script is hard coded. This needs to be changed once we have a sutable place for the output data to store to.
 
+====================================================================================================
+	
   Cost: All prices are for single items, from Amazon.com
     32Gb  (< overkill, 8Gb would be more than enough) samsung sd class 10 ~= $10
       (https://www.amazon.com/SanDisk-microSDHC-Standard-Packaging-SDSQUNC-032G-GN6MA/dp/B010Q57T02/ref=sr_1_4?s=pc&ie=UTF8&qid=1467086248&sr=1-4&keywords=micro+sd+card)
@@ -51,3 +134,5 @@ ArchPi:
     Raspberry pi 3 (NOTE: prototype built with rpi 2b, this can be changed, however the os (arch) will need to be reinstalled with a corresponding version) ~= $35
       (https://www.amazon.com/Raspberry-Pi-RASP-PI-3-Model-Motherboard/dp/B01CD5VC92/ref=sr_1_6?s=pc&ie=UTF8&qid=1467086303&sr=1-6&keywords=raspberry+pi+2)
   Total: ~$70 from amazon
+
+ ====================================================================================================
