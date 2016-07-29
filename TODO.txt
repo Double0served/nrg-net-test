@@ -1,3 +1,5 @@
-make a shell script that will semi-automate sending of hashed keys ... this only needs to be done one -- priority low
+make a shell script that will semi-automate sending of hashed keys ... this only needs to be done once -- priority low
 
-make a script that will install speedtest-cli/mtr/ ... or just use yaourt / github -- priority low
+make a script that will install speedtest-cli/mtr/ ... or just use yaourt / github -- priority med
+
+modify script to accept parameters as to choose what functions will be called (this will include making functions in the script) -- highish
